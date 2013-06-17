@@ -38,6 +38,10 @@
             android:name="com.lovecook.CategoryDetailActivity"
             android:label="@string/title_activity_category_detail" >
         </activity>
+        <activity
+            android:name="com.lovecook.MaelsActivity"
+            android:label="@string/title_activity_maels" >
+        </activity>
     </application>
 
 </manifest>

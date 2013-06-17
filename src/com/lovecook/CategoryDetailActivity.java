@@ -1,6 +1,7 @@
 package com.lovecook;
 
 import java.util.List;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -37,8 +40,26 @@ public class CategoryDetailActivity extends ListActivity implements OnClickListe
                 android.R.layout.simple_list_item_1, categoryDeatailList);
             setListAdapter(adapter);
 		
-		
+        OnItemClickListener clickListener = new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				
+				String selectedItem = parent.getItemAtPosition(position).toString();
+				Intent mealsIntent = new Intent (CategoryDetailActivity.this, MaelsActivity.class);
+				mealsIntent.putExtra("item", selectedItem);
+				
+				startActivity(mealsIntent);
+				
+			}};    
+        
+			getListView().setOnItemClickListener(clickListener);   
+        
+        	
 		back.setOnClickListener(this);
+	
 		
 		database.close();
 		

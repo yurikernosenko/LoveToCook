@@ -12,5 +12,6 @@
     <string name="title_activity_help">HelpActivity</string>
     <string name="back">Back</string>
     <string name="title_activity_category_detail">CategoryDetailActivity</string>
+    <string name="title_activity_maels">MaelsActivity</string>
 
 </resources>

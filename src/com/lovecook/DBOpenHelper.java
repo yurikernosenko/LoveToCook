@@ -114,19 +114,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 			}
 			super.close();
 		}
-		
-		public Meals getMeal(int id) {
+		//get meal
+		public Meals getMeal(String mealName) {
 	        SQLiteDatabase db = this.getReadableDatabase();
 	 
-	        Cursor cursor = db.query(TABLE_NAME, new String[] { MEALS_ID,
-	                MEALS_NUMBER, MEALS_CATEGORY, MEALS_NAME, MEALS_RECIPE, MEALS_PREPARATION }, MEALS_ID + "=?",
-	                new String[] { String.valueOf(id) }, null, null, null, null);
+	        Cursor cursor = db.query(TABLE_NAME, new String[] {MEALS_NAME, MEALS_RECIPE, MEALS_PREPARATION }, MEALS_NAME + "=?",
+	                new String[] { mealName }, null, null, null, null);
 	 
 	        if (cursor != null){
 	            cursor.moveToFirst();
 	        }
 	 
-	        Meals meal = new Meals(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
+	        Meals meal = new Meals(cursor.getString(0), cursor.getString(1), cursor.getString(2));
 	        cursor.close();
 	        return meal;
 	    }

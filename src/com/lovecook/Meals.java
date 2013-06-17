@@ -6,8 +6,6 @@ public class Meals {
 	private String number;
 	private String category;
 	private String name;
-	private String author;
-	private String adress;
 	private String recipe;
 	private String preparation;
 	
@@ -15,6 +13,13 @@ public class Meals {
 	
 	public Meals() {
 		super();
+	}
+
+	public Meals(String name, String recipe, String preparation) {
+		super();
+		this.name = name;
+		this.recipe = recipe;
+		this.preparation = preparation;
 	}
 	
 	public Meals(String number) {
@@ -29,14 +34,12 @@ public class Meals {
 	}
 
 	public Meals(Integer _id, String number, String category, String name,
-			String author, String adress, String recipe, String preparation) {
+			String recipe, String preparation) {
 		super();
 		this._id = _id;
 		this.number = number;
 		this.category = category;
 		this.name = name;
-		this.author = author;
-		this.adress = adress;
 		this.recipe = recipe;
 		this.preparation = preparation;
 	}
@@ -73,22 +76,6 @@ public class Meals {
 		this.name = name;
 	}
 
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-
 	public String getRecipe() {
 		return recipe;
 	}
@@ -108,8 +95,7 @@ public class Meals {
 	@Override
 	public String toString() {
 		return "_id=" + _id + ", number=" + number + ", category="
-				+ category + ", name=" + name + ", author=" + author
-				+ ", adress=" + adress + ", recipe=" + recipe
+				+ category + ", name=" + name + "recipe=" + recipe
 				+ ", preparation=" + preparation;
 	}	
 	
